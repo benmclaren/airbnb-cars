@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+.hero {
+  
+  
+  h1 {
+    font-family: $body-font !important;
+    font-size: 72px;
+    font-weight: 600;
+  }
+}
+
+.hero-image {
+  height: 500px;
+}

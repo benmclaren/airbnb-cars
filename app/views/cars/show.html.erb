@@ -1,0 +1,27 @@
+<h3> <%= @car.manufacturer %> </h3> 
+<h1> <%= @car.model %> </h1>
+<ul>
+  <li>
+    <p>Description:</p>
+    <%= @car.description %>
+  </li>
+  <li>
+    <p>Address:<%= @car.address %></p>
+  </li>
+  <li>
+    <p>Price:£<%= @car.price %></p>
+  </li>
+</ul>
+
+<% @car.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+<% unless @car.user_id == current_user.id %>
+  <%= link_to "Book car", new_car_booking_path(@car) %>
+<% end %>
+
+
+
+
+

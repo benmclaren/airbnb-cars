@@ -1,0 +1,13 @@
+<%= simple_form_for(@car) do |f| %>
+  <h2>Add a new car</h2>
+  <%= f.input :model, required: true %>
+  <%= f.input :manufacturer, required: true %>
+  <%= f.input :description, required: true %>
+  <%= f.input :address, required: true %>
+  <%= f.input :price, required: true %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
+  <div>
+    <%= f.button :submit, class: "" %>
+  </div>
+<% end %>

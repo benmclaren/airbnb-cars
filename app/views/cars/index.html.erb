@@ -1,0 +1,20 @@
+<h1>The Fleet</h1>
+  <div class="car-grid">
+    <% @cars.each do |car|  %>
+      <%= link_to car_path(car) do %>
+        <div class="car-card">
+            <% if car.photos.attached? %>
+              <%= cl_image_tag car.photos[0].key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+            <div class="car-card-info">
+              <h3><%= car.manufacturer %> <%= car.model %></h3>
+              <p>£ <%= car.price %></p>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+

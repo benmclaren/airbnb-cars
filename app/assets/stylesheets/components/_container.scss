@@ -1,0 +1,10 @@
+.body-container {
+  margin-top: 64px;
+  margin: 0 96px;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 48px;
+}
