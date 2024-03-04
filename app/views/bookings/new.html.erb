@@ -2,8 +2,8 @@
   <h2>Book this new car</h2>
   <%= f.input :start_date, as: :date, required: false, input_html: {class: "datepicker", id: "range_start"}, placeholder: "November 22, 2019" %>
   <%= f.input :end_date, as: :date, required: false, input_html: {class: "datepicker", id: "range_end" }, placeholder: "November 23, 2019" %>
-
   <div>
+    <p> Total Price: <%=  %></p>
     <%= f.button :submit, class: "" %>
   </div>
 <% end %>
