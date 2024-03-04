@@ -21,7 +21,6 @@ user_4 = User.create!(email: "email3@gmail.com", password: "password")
 rx8 = Car.create!(model: "RX-8", manufacturer: "Mazda", address: "SE21 8AL", price: 120, user: user_1)
 supra = Car.create!(model: "Supra", manufacturer: "Toyota", address: "SE21 8AL", price: 250, user: user_2)
 gtr = Car.create!(model: "GT-R", manufacturer: "Nissan", address: "SE21 8AL", price: 250, user: user_2)
-350z = Car.create(model: "350Z", manufacturer: "Nissan", address: "SE21 8AL", price: 120, user: user_3)
 impreza = Car.create!(model: "Impreza", manufacturer: "Subaru", address: "SE21 8AL", price: 150, user: user_3)
 
 file = File.open("app/assets/images/rx8.jpeg")
