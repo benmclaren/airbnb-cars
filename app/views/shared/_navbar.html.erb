@@ -41,10 +41,10 @@
               <%= image_tag "user.png", class: "avatar", alt: "dropdown menu" %>
             <% end %>
           </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <div class="dropdown-menu dropdown-menu-end" id='dropdown-menu-custom' aria-labelledby="navbarDropdown">
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item-custom" %>
+            <%= link_to "Bookings", bookings_path, class: "dropdown-item-custom" %>
+            <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item-custom mt-3" %>
           </div>
         </li>
     <% else %>
