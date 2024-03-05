@@ -1,21 +1,33 @@
-<h3> <%= @car.manufacturer %> </h3> 
-<h1> <%= @car.model %> </h1>
-<ul>
-  <li>
-    <p>Description:</p>
-    <%= @car.description %>
-  </li>
-  <li>
-    <p>Address:<%= @car.address %></p>
-  </li>
-  <li>
-    <p>Price:£<%= @car.price %></p>
-  </li>
-</ul>
 
-<% @car.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+
+<div class="d-flex justify-content-between">
+  <div>
+    <div class="d-flex align-items-end">
+      <div>
+        <p class="description"> <%= @car.manufacturer %> </p> 
+        <h1 class="m-0"> <%= @car.model %> </h1>
+      </div>
+      <%= image_tag @car.user.avatar, class:"avatar-large ms-5" %>
+    </div>
+    <ul>
+      <li>
+        <p><%= @car.description %></p>
+      </li>
+      <li>
+        <p>Address:<%= @car.address %></p>
+      </li>
+      <li>
+        <p>Price:£<%= @car.price %></p>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <% @car.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
+</div>
+
 
 
 <% unless @car.user_id == current_user.id %>
