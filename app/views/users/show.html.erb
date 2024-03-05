@@ -1,6 +1,36 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.email %>
-<% @cars.each do |car| %>
-  <%= car.model %>
-<% end %>
+<div class="profile-container d-flex align-items-center justify-content-center text-center">
+  <div class="me-5">
+    <% if current_user.avatar.attached? %>
+      <%= cl_image_tag current_user.avatar.key, class: "avatar-display", alt: "dropdown menu"  %>
+    <% else %>
+      <%= image_tag "user.png", class: "avatar-display", alt: "dropdown menu" %>
+    <% end %>
+  </div>
+  <div class="d-flex flex-column align-items-start">
+    <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+    <p class="text-light-custom"><%= @user.username %></p>
+    <p class="text-light-custom"><%= @user.email %></p>
+    <%= link_to 'Edit profile', edit_user_registration_path %>
+  </div>
+</div>
+  
+<div class="mt-5 ">
+  <h2 class="mt-5">My cars</h2>
+  <div class="car-grid mt-5">
+    <% @cars.each do |car|  %>
+      <%= link_to car_path(car), class:'card-link' do %>
+        <div class="car-card">
+            <% if car.photos.attached? %>
+              <%= cl_image_tag car.photos[0].key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+            <div class="car-card-info">
+              <h3><%= car.manufacturer %> <%= car.model %></h3>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+</div>
+
