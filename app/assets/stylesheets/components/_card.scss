@@ -2,10 +2,15 @@
   background-color: white;
   border-radius: 10px;
   transition: .2s;
+  box-shadow: 0px 2px 8px rgba(255,255,255,0.5);;
   
   img {
     border-radius: 10px 10px 0 0; 
   }
+}
+
+.car-card:hover {
+  transform: scale(1.1);
 }
 
 .car-card-info {
@@ -15,4 +20,8 @@
 
   p {
   }
+}
+
+.card-link {
+  color: #000;
 }
