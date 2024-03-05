@@ -1,5 +1,13 @@
 <p class="description">Cars</p>
 <h1>The Fleet</h1>
+ <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by manufacturer, model or location"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+  <% end %>
   <div class="car-grid mt-5">
     <% @cars.each do |car|  %>
       <%= link_to car_path(car), class:'card-link' do %>
