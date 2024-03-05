@@ -18,7 +18,7 @@
 <% end %>
 
 
-<% unless @car === current_user %>
+<% unless @car.user_id == current_user.id %>
   <%= link_to "Book car", new_car_booking_path(@car) %>
 <% end %>
 
