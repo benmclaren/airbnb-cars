@@ -3,12 +3,24 @@
   
   
   h1 {
-    font-family: $body-font !important;
+    font-family: $headers-font !important;
     font-size: 72px;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
 .hero-image {
-  height: 500px;
+  width: 45vw;
+  border-radius: 24px;
+}
+
+.description {
+  color: #777;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.hero-bio {
+  font-size: 24px;
+  font-weight: 300;
 }
