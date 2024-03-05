@@ -9,19 +9,56 @@
 Car.destroy_all
 User.destroy_all
 
-user_1 = User.create!(email: "ben@gmail.com", password: "password")
+puts "Creating users..."
+  
+ben = User.create!(first_name: 'Ben', last_name: 'McLaren', username: 'DriftKing', email: "ben@gmail.com", password: "123456")
 
-user_2 = User.create!(email: "email1@gmail.com", password: "password")
+ruby = User.create!(first_name: 'Ruby', last_name: 'Rails', username: 'rubyrails99', email: "rubyrails99@gmail.com", password: "123456")
 
-user_3 = User.create!(email: "email2@gmail.com", password: "password")
+ife = User.create!(first_name: 'Ife', last_name: 'Odugbesan', username: 'itsifz', email: "ifeodugbesan@gmail.com", password: "123456")
 
-user_4 = User.create!(email: "email3@gmail.com", password: "password")
+alan = User.create!(first_name: 'Alán', last_name: 'Rodriguez', username:'ElNumeroNueve', email: "alan@gmail.com", password: "123456")
 
+puts "Users created!"
 
-rx8 = Car.create!(model: "RX-8", manufacturer: "Mazda", address: "SE21 8AL", price: 120, user: user_1)
-supra = Car.create!(model: "Supra", manufacturer: "Toyota", address: "SE21 8AL", price: 250, user: user_2)
-gtr = Car.create!(model: "GT-R", manufacturer: "Nissan", address: "SE21 8AL", price: 250, user: user_2)
-impreza = Car.create!(model: "Impreza", manufacturer: "Subaru", address: "SE21 8AL", price: 150, user: user_3)
+puts "Attaching avatars..."
+
+ben_avatar = File.open("app/assets/images/uifaces-cartoon-image-1.jpg")
+ben.avatar.attach(io: ben_avatar, filename: 'uifaces-cartoon-image-1.jpg', content_type: "image/jpg")
+
+ruby_avatar = File.open("app/assets/images/uifaces-cartoon-image-2.jpg")
+ruby.avatar.attach(io: ruby_avatar, filename: 'uifaces-cartoon-image-2.jpg', content_type: "image/jpg")
+
+ife_avatar = File.open("app/assets/images/uifaces-cartoon-image-3.jpg")
+ife.avatar.attach(io: ife_avatar, filename: 'uifaces-cartoon-image-3.jpg', content_type: "image/jpg")
+
+alan_avatar = File.open("app/assets/images/uifaces-cartoon-image-4.jpg")
+alan.avatar.attach(io: alan_avatar, filename: 'uifaces-cartoon-image-4.jpg', content_type: "image/jpg")
+
+puts "avatars attached!"
+
+puts "Creating Cars..."
+
+rx8 = Car.create!(model: "RX-8", manufacturer: "Mazda", address: "Dulwich", price: 120, user: ben)
+mx5 = Car.create!(model: "MX-5", manufacturer: "Mazda", address: "Chelsea", price: 100, user: ruby)
+gtr = Car.create!(model: "GT-R", manufacturer: "Nissan", address: "Surrey Quays", price: 250, user: ife)
+nsx = Car.create!(model: "NSX", manufacturer: "Honda", address: "Walthamstow", price: 200, user: alan)
+
+puts "Cars created!"
+
+puts "Attaching pictures..."
 
 file = File.open("app/assets/images/rx8.jpeg")
 rx8.photos.attach(io: file, filename: 'rx8.jpeg', content_type: "image/jpeg")
+
+file = File.open("app/assets/images/mx5.jpeg")
+mx5.photos.attach(io: file, filename: 'mx5.jpeg', content_type: "image/jpeg")
+
+file = File.open("app/assets/images/gtr.jpeg")
+gtr.photos.attach(io: file, filename: 'gtr.jpeg', content_type: "image/jpeg")
+
+file = File.open("app/assets/images/nsx.jpeg")
+nsx.photos.attach(io: file, filename: 'nsx.jpeg', content_type: "image/jpeg")
+
+puts "Pictures attached!"
+puts "Seed Complete!"
