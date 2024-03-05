@@ -16,15 +16,22 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 .nav-title {
   color: #FCEA00;
+  font-weight: 600;
 }
 
-.navbar-nav a {
-  color: $white !important;
+.nav-link-custom {
+  font-weight: 200;
+  color: #777777;
+  font-size: 20px;
 }
 
+.override {
+  align-items: normal !important;
+}
+
+.nav-link-custom:hover {
+  color: #FBEA00;
+  font-weight: 300px
+}
