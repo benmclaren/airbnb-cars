@@ -48,15 +48,28 @@ puts "Cars created!"
 
 puts "Attaching pictures..."
 
+# rx8
 file = File.open("app/assets/images/rx8.jpeg")
 rx8.photos.attach(io: file, filename: 'rx8.jpeg', content_type: "image/jpeg")
 
+file = File.open("app/assets/images/rx8-2.jpeg")
+rx8.photos.attach(io: file, filename: 'rx8-2.jpeg', content_type: "image/jpeg")
+
+file = File.open("app/assets/images/rx8-3.jpeg")
+rx8.photos.attach(io: file, filename: 'rx8-3.jpeg', content_type: "image/jpeg")
+
+file = File.open("app/assets/images/rx8-4.jpeg")
+rx8.photos.attach(io: file, filename: 'rx8-4.jpeg', content_type: "image/jpeg")
+
+# mx5
 file = File.open("app/assets/images/mx5.jpeg")
 mx5.photos.attach(io: file, filename: 'mx5.jpeg', content_type: "image/jpeg")
 
+# gtr
 file = File.open("app/assets/images/gtr.jpeg")
 gtr.photos.attach(io: file, filename: 'gtr.jpeg', content_type: "image/jpeg")
 
+# nsx
 file = File.open("app/assets/images/nsx.jpeg")
 nsx.photos.attach(io: file, filename: 'nsx.jpeg', content_type: "image/jpeg")
 
