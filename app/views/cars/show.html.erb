@@ -1,38 +1,42 @@
-
-
-<div class="d-flex justify-content-between">
-  <div>
-    <div class="d-flex align-items-end">
+<div class="d-flex justify-content-between car-show-container">
+  <div class="w-100">
+    <div class="d-flex align-items-start justify-content-between">
       <div>
         <p class="description"> <%= @car.manufacturer %> </p> 
-        <h1 class="m-0"> <%= @car.model %> </h1>
+        <h1 class="m-0 page-title"> <%= @car.model %> </h1>
       </div>
       <%= image_tag @car.user.avatar, class:"avatar-large ms-5" %>
     </div>
     <ul>
       <li>
-        <p><%= @car.description %></p>
+        <p class="body-text"><%= @car.description %></p>
       </li>
       <li>
-        <p>Address:<%= @car.address %></p>
+        <p>Located in</p>
+        <p><%= @car.address %></p>
       </li>
       <li>
         <p>Price:£<%= @car.price %></p>
       </li>
     </ul>
+    <% unless @car.user_id == current_user.id %>
+      <%= link_to "Reserve now", new_car_booking_path(@car), class:'btn-main' %>
+    <% end %>
   </div>
   <div>
-    <% @car.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @car.photos[0].key, crop: :fill, class: 'image-display d-block' %>
+    <% unless @car.photos.count == 1 %>
+      <div class="images-container d-flex mt-3">
+        <% @car.photos.each_with_index do |photo, index| %>
+          <% next if index == 0  %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:'image-scroll' %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
 
 
-
-<% unless @car.user_id == current_user.id %>
-  <%= link_to "Book car", new_car_booking_path(@car) %>
-<% end %>
 
 
 

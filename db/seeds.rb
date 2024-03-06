@@ -39,7 +39,7 @@ puts "avatars attached!"
 
 puts "Creating Cars..."
 
-rx8 = Car.create!(model: "RX-8", manufacturer: "Mazda", address: "Dulwich", price: 120, user: ben)
+rx8 = Car.create!(model: "RX-8", manufacturer: "Mazda", address: "Dulwich", price: 120, user: ben, description: 'The Mazda RX-8 is a sports car manufactured by Japanese automobile manufacturer Mazda between 2002 and 2012.' )
 mx5 = Car.create!(model: "MX-5", manufacturer: "Mazda", address: "Chelsea", price: 100, user: ruby)
 gtr = Car.create!(model: "GT-R", manufacturer: "Nissan", address: "Surrey Quays", price: 250, user: ife)
 nsx = Car.create!(model: "NSX", manufacturer: "Honda", address: "Walthamstow", price: 200, user: alan)

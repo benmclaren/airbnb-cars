@@ -9,4 +9,20 @@ class Car < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def self.manufacturer_select
+    ["Mazda", "Toyota", "Nissan", "Subaru", "Mitsibishi", "Honda"]
+  end
+
+  def self.layout_select
+    ["FWD", "RWD", "AWD"]
+  end
+
+  def self.transmission_select
+    ["Manual", "Automatic", "Sequential"]
+  end
+
+  def self.body_select
+    ["Coupé", "Hatchback", "Saloon", "Convertible", "Estate", "Targa"]
+  end
 end
