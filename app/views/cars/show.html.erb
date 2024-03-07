@@ -20,6 +20,9 @@
         <p>Price:£<%= @car.price %></p>
       </li>
     </ul>
+    <% if @car.user_id == current_user.id  %> 
+      <%= link_to 'Edit car', edit_car_path(@car) %>
+    <% end %>
   </div>
   <div>
     <% @car.photos.each do |photo| %>
@@ -33,6 +36,7 @@
 <% unless @car.user_id == current_user.id %>
   <%= link_to "Book car", new_car_booking_path(@car) %>
 <% end %>
+
 
 
 
