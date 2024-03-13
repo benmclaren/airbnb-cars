@@ -20,7 +20,14 @@
       </li>
     </ul>
     <% unless @car.user_id == current_user.id %>
-      <%= link_to "Reserve now", new_car_booking_path(@car), class:'btn-main' %>
+      <%= simple_form_for [@car, @booking], data: { controller: 'flatpickr' } do |f| %>
+        <p> £ <%= @car.price %> / per day </p>
+        <%= f.input :start_date, as: :string, required: false, input_html: { data: { flatpickr_target: "startDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
+        <%= f.input :end_date, as: :string, required: false, input_html: { data: { flatpickr_target: "endDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
+        <div>
+          <%= f.button :submit, class: "", value: 'Reserve', class:'btn-main' %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div>
