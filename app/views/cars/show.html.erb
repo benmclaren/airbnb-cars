@@ -20,11 +20,18 @@
       <% unless @car.user_id == current_user.id %>
         <div class="booking-container"> 
           <%= simple_form_for [@car, @booking], data: { controller: 'flatpickr' } do |f| %>
-            <p> £ <%= @car.price %> / per day </p>
-            <%= f.input :start_date, as: :string, required: false, input_html: { data: { flatpickr_target: "startDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
-            <%= f.input :end_date, as: :string, required: false, input_html: { data: { flatpickr_target: "endDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
+            <span class="fs-2 me-2" data-flatpickr-target="pricePerDay"><%= @car.price %></span>
+            <span>day</span>
+            <div class='d-flex gap-3'>
+              <%= f.input :start_date, as: :string, required: false, input_html: { data: { flatpickr_target: "startDate" } }, class: "datepicker", id: "range_start", placeholder: "#{Date.today}", label: 'Pick up'  %>
+              <%= f.input :end_date, as: :string, required: false, input_html: { data: { flatpickr_target: "endDate", action: "change->flatpickr#calculateTotalPrice" } }, class: "datepicker", id: "range_start", placeholder: "#{Date.today + 3.days}", label: 'Drop off'  %>
+            </div>
             <div>
-              <%= f.button :submit, class: "", value: 'Reserve', class:'btn-main' %>
+              <%= f.button :submit, class: "", value: 'Reserve', class:'btn-main w-100' %>
+            </div>
+            <div>
+              <p>Total</p>
+              <p data-flatpickr-target="price"></p>
             </div>
           <% end %>
         </div>
