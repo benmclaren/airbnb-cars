@@ -12,20 +12,21 @@
         <p class="body-text"><%= @car.description %></p>
       </li>
       <li>
-        <p>Located in</p>
+        <i class="bi bi-geo-alt-fill"></i>
         <p><%= @car.address %></p>
       </li>
-      <li>
-        <p>Price:£<%= @car.price %></p>
-      </li>
     </ul>
-    <% unless @car.user_id == current_user.id %>
-      <%= simple_form_for [@car, @booking], data: { controller: 'flatpickr' } do |f| %>
-        <p> £ <%= @car.price %> / per day </p>
-        <%= f.input :start_date, as: :string, required: false, input_html: { data: { flatpickr_target: "startDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
-        <%= f.input :end_date, as: :string, required: false, input_html: { data: { flatpickr_target: "endDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
-        <div>
-          <%= f.button :submit, class: "", value: 'Reserve', class:'btn-main' %>
+    <% if user_signed_in? %>
+      <% unless @car.user_id == current_user.id %>
+        <div class="booking-container"> 
+          <%= simple_form_for [@car, @booking], data: { controller: 'flatpickr' } do |f| %>
+            <p> £ <%= @car.price %> / per day </p>
+            <%= f.input :start_date, as: :string, required: false, input_html: { data: { flatpickr_target: "startDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
+            <%= f.input :end_date, as: :string, required: false, input_html: { data: { flatpickr_target: "endDate" } }, class: "datepicker", id: "range_start", placeholder: ""  %>
+            <div>
+              <%= f.button :submit, class: "", value: 'Reserve', class:'btn-main' %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     <% end %>
