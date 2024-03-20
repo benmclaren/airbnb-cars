@@ -41,8 +41,8 @@ puts "Creating Cars..."
 
 rx8 = Car.create!(model: "RX-8", manufacturer: "Mazda", address: "Dulwich", price: 120, user: ben, description: 'The Mazda RX-8 is a sports car manufactured by Japanese automobile manufacturer Mazda between 2002 and 2012.', power: '192', transmission: 'Manual', body_style: 'Coupé', layout: 'RWD', engine: '1.3L', year: '2004')
 mx5 = Car.create!(model: "MX-5", manufacturer: "Mazda", address: "Chelsea", price: 100, user: ruby, description: 'The Mazda MX-5 is a lightweight two-passenger sports car manufactured and marketed by Mazda with a front mid-engine, rear-wheel-drive layout.', power: '128', transmission: 'Manual', body_style: 'Convertible', layout: 'RWD', engine: '1.8L', year: '1995')
-gtr = Car.create!(model: "GT-R", manufacturer: "Nissan", address: "Surrey Quays", price: 250, user: ife)
-nsx = Car.create!(model: "NSX", manufacturer: "Honda", address: "Walthamstow", price: 200, user: alan)
+gtr = Car.create!(model: "GT-R", manufacturer: "Nissan", address: "Surrey Quays", price: 250, user: ife, description: 'The Nissan GT-R is a car built by Japanese marque Nissan since 2007.', power: '570', transmission: 'Automatic', body_style: 'Coupé', layout: 'AWD', engine: '3.8L', year: '2016')
+nsx = Car.create!(model: "NSX", manufacturer: "Honda", address: "Walthamstow", price: 200, user: alan, description: 'The Honda NSX, is a two-seater, rear mid-engined, rear-wheel drive sports car manufactured by Honda.', power: '270', transmission: 'Manual', body_style: 'Coupé', layout: 'RWD', engine: '3.0L', year: '1993')
 
 puts "Cars created!"
 
