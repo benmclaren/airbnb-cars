@@ -12,8 +12,12 @@
         <p class="body-text"><%= @car.description %></p>
       </li>
       <li>
-        <%# <i class="bi bi-geo-alt-fill"></i> %>
-        <p>This vehicle is located in <%= @car.address %></p>
+        <div class="d-flex justify-content-between">
+          <p>This vehicle is located in <%= @car.address %></p>
+          <% if @car.user == current_user %> 
+            <%= link_to 'Edit car', edit_car_path(@car) %>
+          <% end %>
+        </div>
       </li>
     </ul>
     <div class='d-flex justify-content-between text-center my-4 stats-container'>
@@ -66,8 +70,6 @@
           <% end %>
         </div>
       <% end %>
-    <% if @car.user_id == current_user.id  %> 
-      <%= link_to 'Edit car', edit_car_path(@car) %>
     <% end %>
   </div>
   <div>
