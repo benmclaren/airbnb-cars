@@ -8,3 +8,35 @@
   font-weight: 400;
   font-size: 18px;
 }
+
+.page-title {
+  font-size: 64px;
+}
+
+.image-display {
+  width: 50vw;
+  height: 30vw;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.images-container {
+  width: 50vw;
+  overflow-x: scroll;
+  gap: 16px;
+}
+
+.image-scroll {
+  border-radius: 12px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.body-text {
+  font-size: 24px;
+}

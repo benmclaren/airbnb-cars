@@ -1,8 +1,14 @@
 <%= simple_form_for(@car) do |f| %>
   <h2>Add a new car</h2>
+  <%= f.input :manufacturer, required: true, collection: @manufacturer_select %>
   <%= f.input :model, required: true %>
-  <%= f.input :manufacturer, required: true %>
   <%= f.input :description, required: true %>
+  <%= f.input :layout, required: false, collection: @layout_select %>
+  <%= f.input :power, required: false %>
+  <%= f.input :transmission, required: false, collection: @transmission_select %>
+  <%= f.input :body_style, required: false, collection: @body_select %>
+  <%= f.input :engine, required: false %>
+  <%= f.input :year, required: true %>
   <%= f.input :address, required: true %>
   <%= f.input :price, required: true %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>

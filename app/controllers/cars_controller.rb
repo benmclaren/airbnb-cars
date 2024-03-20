@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_car, only: [:show, :edit, :update]
 
   def index  
@@ -11,9 +12,15 @@ class CarsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
+    # options for dropdown
+    @manufacturer_select = Car.manufacturer_select
+    @layout_select = Car.layout_select
+    @body_select = Car.body_select
+    @transmission_select = Car.transmission_select
     @car = Car.new
   end
 
@@ -46,6 +53,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:model, :manufacturer, :description, :price, :address, photos: [])
+    params.require(:car).permit(:model, :manufacturer, :description, :price, :address, :layout, :power, :transmission, :body_style, :engine, :year, photos: [])
   end
 end
