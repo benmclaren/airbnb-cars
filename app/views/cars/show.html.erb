@@ -12,13 +12,39 @@
         <p class="body-text"><%= @car.description %></p>
       </li>
       <li>
-        <i class="bi bi-geo-alt-fill"></i>
-        <p><%= @car.address %></p>
+        <%# <i class="bi bi-geo-alt-fill"></i> %>
+        <p>This vehicle is located in <%= @car.address %></p>
       </li>
     </ul>
+    <div class='d-flex justify-content-between text-center my-4 stats-container'>
+      <div>
+        <p class='description-sm'>Year</p>
+        <p class='fs-5'><%= @car.year %></p>
+      </div>
+      <div>
+        <p class='description-sm'>BHP</p>
+        <p class='fs-5'><%= @car.power %></p>
+      </div>
+      <div>
+        <p class='description-sm'>Layout</p>
+        <p class='fs-5'><%= @car.layout %></p>
+      </div>
+      <div>
+        <p class='description-sm'>Transmission</p>
+        <p class='fs-5'><%= @car.transmission %></p>
+      </div>
+      <div>
+        <p class='description-sm'>Body</p>
+        <p class='fs-5'><%= @car.body_style %></p>
+      </div>
+      <div>
+        <p class='description-sm'>Engine</p>
+        <p class='fs-5'><%= @car.engine %></p>
+      </div>
+    </div>
     <% if user_signed_in? %>
       <% unless @car.user_id == current_user.id %>
-        <div class="booking-container"> 
+        <div class="booking-container my-4"> 
           <%= simple_form_for [@car, @booking], data: { controller: 'flatpickr' } do |f| %>
             <span class="fs-2 me-2" data-flatpickr-target="pricePerDay"><%= @car.price %></span>
             <span>day</span>
