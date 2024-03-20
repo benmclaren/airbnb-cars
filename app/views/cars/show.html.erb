@@ -66,6 +66,8 @@
           <% end %>
         </div>
       <% end %>
+    <% if @car.user_id == current_user.id  %> 
+      <%= link_to 'Edit car', edit_car_path(@car) %>
     <% end %>
   </div>
   <div>
@@ -80,6 +82,7 @@
     <% end %>
   </div>
 </div>
+
 
 
 
